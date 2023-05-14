@@ -1,0 +1,32 @@
+{
+    "manifest_version": 3,
+    "name": "DragonFly（飞龙在天）",
+    "version": "1.0.0",
+    "description": "一个非常高大上的图片下载插件",
+    "icons": {
+      "16": "icon16.png",
+      "48": "icon48.png",
+      "128": "icon128.png"
+    },
+    "action":{},
+    "options_ui": {
+        "page": "./src/options.html",
+        "open_in_tab": true
+      },
+    "content_scripts": [
+        {
+          "matches": ["https://*/*"],
+          "js": ["src/main.js"]
+        }
+      ],
+      "background":{
+        "service_worker": "src/service_worker.js"
+      },
+    "permissions": [
+      "storage",
+      "tabs",
+      "activeTab",
+      "downloads",
+      "contextMenus"
+    ]
+  }
